@@ -13,5 +13,9 @@ public class Chromosome {
         this.gene = gene;
         this.fitness = Utils.calculateFitness(this);
     }
+    
+    public static Chromosome getRandomChromosome() {
+        return Utils.generateRandomChromosome();  
+    }
 
 }
