@@ -11,8 +11,6 @@ public class Utils {
         if (totalweight > m){
             fitness = 0; //weight limit exceeded. more efficient to move to the fitness calculator but i dont like java.
         }
-
-
         return fitness;
     }
     
