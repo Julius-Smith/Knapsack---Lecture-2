@@ -14,16 +14,4 @@ public class Utils {
         return fitness;
     }
     
-    public static Chromosome generateRandomChromosome(int chromosomeLength) {
-
-        ArrayList< Integer> gene = new ArrayList<>();
-
-        for(int i = 0; i < chromosomeLength; i++) {
-            gene.add(Configuration.INSTANCE.mersenneTwister.nextInt(1));
-        }
-        
-        Chromosome chromosome = new Chromosome(gene);
-
-        return chromosome;
-    }
 }

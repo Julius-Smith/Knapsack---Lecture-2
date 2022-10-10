@@ -1,7 +1,16 @@
-knapsack.txt is the knapsack example file
+Please look at new class diagram for info! 
 
-first line (15) is max weight
-second line is weights
-thrid line is values for associated weights
+Any changes please email juliandavidlord@gmail.com for now
 
-answer should be [1,0,1,1] for max fitness to use weights 8+1+5 = 14 for values 13+4+7 = 24
+Main classes are:
+
+    Main.java
+
+    Population.java
+
+    Chromosome.java
+
+
+Most methods in the two last classes aren't implemented yet.
+
+Stopping condition for the evolution loop in main must also be discussed!
