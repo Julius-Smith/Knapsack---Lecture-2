@@ -28,9 +28,9 @@ public class Population {
         }
     }
 
-    public ArrayList<Chromosome> getParents() {
+    public Chromosome[] getParents() {
         //TODO returns the parents chosen from the population as an ArrayList of Chromosomes
-        return null;
+        return ParentSelection.tournamentSelection(population);
     }
 
     public Chromosome generateChild(Chromosome Parent1, Chromosome Parent2) {
@@ -38,12 +38,12 @@ public class Population {
         return null;
     }
 
-    public ArrayList<Chromosome> getChildren(ArrayList<Chromosome> parents) {
+    public Chromosome[] getChildren(Chromosome[] parents) {
         //TODO returns an ArrayList of children generated from parents 
         return null;
     }
 
-    public ArrayList<Chromosome> mutate(ArrayList<Chromosome> individuals) {
+    public Chromosome[] mutate(Chromosome[] individuals) {
         //TODO mutates an arraylist of chromosomes and returns the mutated product.
         return null;
     }
@@ -54,7 +54,7 @@ public class Population {
         return 0.0f;
     }
 
-    public void setPopulation(ArrayList<Chromosome> parents, ArrayList<Chromosome> children) {
+    public void setPopulation(Chromosome[] parents, Chromosome[] children) {
         //TODO sets the population to a combination of parents and children
         return;
     }

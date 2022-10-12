@@ -1,6 +1,8 @@
+import java.util.ArrayList;
 
 public class ParentSelection {
-    public static Chromosome[] TournamentSelection(Chromosome[] population) {
+    //RATHER DO THIS LIKE the premade code. Selecting two parents at a time. 
+    public static Chromosome[] tournamentSelection(Chromosome[] population) {
         /*
          * Call: parents = ParentSelection.TournamentSelection(population);  //RETHINK This
          * 
@@ -11,11 +13,22 @@ public class ParentSelection {
 
         Chromosome[] waitingArea = new Chromosome[population.length];
         System.arraycopy(population, 0, waitingArea, 0, 0); //Check if this is a shallow copy
-        int numOfExpectedParents = population.length; // Make this the actual length we want. 
+        int numOfExpectedParents = population.length; // Make this the actual length we want.
 
-        while(waitingArea.length>numOfExpectedParents)
+        Chromosome[] winners = new Chromosome[population.length];
+        while(winners.length<numOfExpectedParents){
+            float randint = Configuration.INSTANCE.mersenneTwister.nextFloat();
+            // Find another random parent
+        }
         /*
-         * Outline:
+         * Mating pool strategy: 
+         * Have a pool of like 20, and from that we select by roulette or tournament. It is best to work with a middle 
+         *      mating pool. We produce our 40 children. Put it to the population, sort the popoulation by fitness and cut it. 
+         * One parent can reproduce multiple times. We have our parents and fight until we have 
+         * 
+         * 
+         * 
+         * 'Outline:
          * Select a number of even individuals 2, 4 or 6 ... 
          * THen in the arena from the waiting space we select two indiciduals until we have the expected
          * number of individuals.
@@ -26,8 +39,8 @@ public class ParentSelection {
          */
         
 
-        for (int i = 0; i < 2; i++) { //Make this a while loop
-            float randint = Configuration.INSTANCE.mersenneTwister.nextFloat();
+        for (int i = 0; i < numOfExpectedParents; i++) { //Make this a while loop (or is it good like this?)
+            
         }
         
         return (waitingArea);
