@@ -11,17 +11,11 @@ class Main {
         // Evolution loop
         while(!GoodEnough) {
             
+            population.evolve();
+            
             if(population.evaluatePopulation() >= threshold) {
                 GoodEnough = true;
             }
-
-            Chromosome[] parents = population.getParents();
-
-            Chromosome[] children = population.getChildren(parents);
-
-            children = population.mutate(children);
-
-            population.setPopulation(parents, children);
 
         }
     }

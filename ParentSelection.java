@@ -1,14 +1,8 @@
-import java.util.ArrayList;
-
 public class ParentSelection {
-    //RATHER DO THIS LIKE the premade code. Selecting two parents at a time. 
     public static Chromosome[] tournamentSelection(Chromosome[] population) {
         /*
-         * Call: parents = ParentSelection.TournamentSelection(population);  //RETHINK This
-         * 
-         * Tournament selection for use in Evolution.java
          * Input: population of Chomosome[] from the population.java
-         * Output: Parents selected for crossover. Chromosome[] (Maybe we only shall return two of the parents. I think it is better if I implement the entire evolve function.)
+         * Output: Two parents selected for crossover. Chromosome[] 
          */
 
         Chromosome[] waitingArea = new Chromosome[population.length];
@@ -17,7 +11,7 @@ public class ParentSelection {
 
         Chromosome[] winners = new Chromosome[population.length];
         while(winners.length<numOfExpectedParents){
-            float randint = Configuration.INSTANCE.mersenneTwister.nextFloat();
+            float randint = Configuration.INSTANCE.mersenneTwister.nextInt(population.length);
             // Find another random parent
         }
         /*
@@ -38,11 +32,20 @@ public class ParentSelection {
          * ASK TUTOR: How many parents do we want to keep? 
          */
         
-
-        for (int i = 0; i < numOfExpectedParents; i++) { //Make this a while loop (or is it good like this?)
-            
+        // We run two rounds of selecting parents by selecitng randomly.
+        Chromosome[] parents = new Chromosome[2];
+        for (int i = 0; i < 2; i++) { //Make this a while loop (or is it good like this?)
+            //Select first parent to fight 
+            parents[i] = population[Configuration.INSTANCE.mersenneTwister.nextInt(population.length)];
+            //Go through three others to fight against it, the winner stays.
+            for (int j = 0; j < 3; j++) {
+                int randint = Configuration.INSTANCE.mersenneTwister.nextInt(population.length);
+                if (parents[i].fitness < population[randint].fitness) {
+                    parents[i] = population[randint];
+                }
+            }
         }
         
-        return (waitingArea);
+        return (parents);
     }
 }

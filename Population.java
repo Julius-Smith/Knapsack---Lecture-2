@@ -59,4 +59,14 @@ public class Population {
         return;
     }
 
+    public void evolve() {
+        Chromosome[] parents = getParents();
+
+        Chromosome[] children = getChildren(parents);
+
+        children = mutate(children);
+
+        setPopulation(parents, children);
+    }
+
 }
