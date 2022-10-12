@@ -37,7 +37,14 @@ public class Chromosome implements Comparable {
 
     @Override
     public int compareTo(Object o) {
-        //TODO compare based on fitness.
+        //compare based on fitness.
+        Chromosome c = (Chromosome) o;
+        if (this.fitness < c.fitness) {
+            return -1;
+        }
+        if (this.fitness > c.fitness) {
+            return 1;
+        }
         return 0;
     }
 
